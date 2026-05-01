@@ -3,6 +3,7 @@ import { AuthProvider, useAuth } from './context/AuthContext'
 import { ToastProvider } from './components/Toast'
 import AuthPage   from './pages/AuthPage'
 import Dashboard  from './pages/Dashboard'
+import { useEffect } from 'react' 
 
 function ProtectedRoute({ children }) {
   const { token } = useAuth()
@@ -11,6 +12,17 @@ function ProtectedRoute({ children }) {
 
 function AppRoutes() {
   const { token } = useAuth()
+
+  //  NOW inside the component
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user?.role === "admin") {
+      document.body.classList.add("admin");
+    } else {
+      document.body.classList.remove("admin");
+    }
+  }, [token]); // token changes on login/logout
+
   return (
     <Routes>
       <Route path="/"          element={token ? <Navigate to="/dashboard" replace /> : <AuthPage />} />

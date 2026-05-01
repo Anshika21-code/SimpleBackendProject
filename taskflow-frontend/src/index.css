@@ -21,6 +21,12 @@
   --r-lg: 18px;
   --r-xl: 24px;
 }
+/* Admin theme — overrides accent to green */
+body.admin {
+  --accent: #1fd6a0;
+  --accent-light: #5fffcf;
+  --accent-dim: #1fd6a022;
+}
 
 html { font-size: 16px; }
 

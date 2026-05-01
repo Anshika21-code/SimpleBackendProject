@@ -134,7 +134,7 @@ export default function Dashboard() {
           <div style={s.empty}>Loading tasks...</div>
         ) : tasks.length === 0 ? (
           <div style={s.empty}>
-            <div style={{ fontSize: 36, marginBottom: 12 }}>📋</div>
+            <div style={{ fontSize: 36, marginBottom: 12 }}></div>
             <p>No tasks yet. Create one above!</p>
           </div>
         ) : (
